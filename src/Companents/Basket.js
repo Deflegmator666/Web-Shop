@@ -7,6 +7,7 @@ const Basket = ({
   itemsArr,
   setItemsArr,
   overalPrice,
+  changeCount,
 }) => {
   const addItem = (id) => {
     const updatedItemsArr = itemsArr.map((item) =>
@@ -76,7 +77,7 @@ const Basket = ({
               })}
             </div>
             <div className="basket__total">
-              <div className="basket__count">1</div>
+              <div className="basket__count">{changeCount}</div>
               <div className="basket__overalPrice">{overalPrice}</div>
               <button className="basket__submit-price">Оформить заказ</button>
             </div>

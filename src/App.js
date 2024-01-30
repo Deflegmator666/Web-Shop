@@ -23,6 +23,11 @@ const App = () => {
     [itemsArr]
   );
 
+  const changeCount = useMemo(
+    () => itemsArr.reduce((acc, curr) => acc + curr.count, 0),
+    [itemsArr]
+  );
+
   useEffect(() => {
     localStorage.setItem("pizzaItems", JSON.stringify(itemsArr));
   }, [itemsArr]);
@@ -163,6 +168,7 @@ const App = () => {
         )}
         {openBasket && (
           <Basket
+            changeCount={changeCount}
             changeStateBasket={changeStateBasket}
             Products={Products}
             closeIcon={closeIcon}
